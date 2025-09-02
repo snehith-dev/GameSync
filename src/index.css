@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gaming Discord Channel Promotion Website Design System
+All colors MUST be HSL for perfect theming.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Clean Gaming Aesthetic */
+    --background: 0 0% 100%;
+    --foreground: 220 14% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 6%;
+
+    /* Discord Blurple as Primary */
+    --primary: 235 86% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Gaming Cyan Accent */
+    --gaming-accent: 190 100% 50%;
+    --gaming-accent-foreground: 220 14% 6%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 9% 46%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 235 86% 65%;
+
+    --radius: 0.75rem;
+
+    /* Gaming-specific design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(235 86% 65% / 0.1), hsl(190 100% 50% / 0.1));
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    --glow-primary: 0 0 30px hsl(235 86% 65% / 0.3);
+    --glow-accent: 0 0 20px hsl(190 100% 50% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Gaming Aesthetic */
+    --background: 220 14% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 14% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 14% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Discord Blurple as Primary in Dark */
+    --primary: 235 86% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Gaming Cyan Accent */
+    --gaming-accent: 190 100% 50%;
+    --gaming-accent-foreground: 220 14% 8%;
+
+    --secondary: 220 14% 16%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 220 14% 16%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 220 14% 16%;
+    --accent-foreground: 0 0% 85%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 235 86% 65%;
+
+    /* Dark mode gaming tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(220 14% 8%), hsl(235 86% 65% / 0.1));
+    --card-gradient: linear-gradient(145deg, hsl(220 14% 10%), hsl(220 14% 12%));
+    --glow-primary: 0 0 40px hsl(235 86% 65% / 0.4);
+    --glow-accent: 0 0 30px hsl(190 100% 50% / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer components {
+  /* Gaming Button Variants */
+  .btn-gaming {
+    @apply relative overflow-hidden px-8 py-4 rounded-xl font-semibold transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:shadow-[var(--glow-primary)];
+    @apply transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-gaming-accent {
+    @apply relative overflow-hidden px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:shadow-[var(--glow-accent)];
+    @apply transform hover:scale-105 active:scale-95;
+  }
+
+  /* Hero Section Styling */
+  .hero-section {
+    @apply min-h-screen flex items-center justify-center relative overflow-hidden;
+    background: var(--hero-gradient);
+  }
+
+  /* Feature Cards */
+  .feature-card {
+    @apply p-8 rounded-2xl backdrop-blur-sm border border-border/50 transition-all duration-300;
+    background: var(--card-gradient);
+    @apply hover:shadow-lg hover:border-primary/20 hover:scale-105;
+  }
+
+  /* Smooth Animations */
+  .fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .fade-in.animate {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .glow-effect {
+    @apply transition-all duration-300;
+  }
+
+  .glow-effect:hover {
+    filter: drop-shadow(var(--glow-primary));
+  }
+}
